@@ -7,9 +7,10 @@
 //
 
 #import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MediaPlayer.h>
 #import "ViewController.h"
 #import "MMWormhole.h"
-#import <MediaPlayer/MediaPlayer.h>
+#import "BabyState.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) MMWormhole *wormhole;
@@ -17,6 +18,7 @@
 @property (nonatomic, strong) AVAudioRecorder *audioRecorder;
 @property (nonatomic, strong) NSTimer *audioTimer;
 @property(nonatomic, strong) NSTimer *movieTimer;
+@property (nonatomic, assign) BabyState state;
 @end
 
 @implementation ViewController
@@ -25,7 +27,8 @@
     [super viewDidLoad];
     
     self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:kGroupIdentifier optionalDirectory:nil];
-
+    self.state = BabyStateSilent;
+    
     [self setupMoviePlayer];
     [self setupBabyCryDetection];
 }
@@ -82,10 +85,14 @@
 - (void)listenToBaby {
     [self.audioRecorder updateMeters];
     CGFloat power = [self.audioRecorder averagePowerForChannel:0];
-    if (power>=kPowerThreshold) {
+    if (power>=kPowerThreshold && self.state==BabyStateSilent) {
         NSLog(@"Baby is crying...");
-    } else {
-        NSLog(@"Baby is fine.");
+        self.state = BabyStateCrying;
+        [self.wormhole passMessageObject:@(self.state) identifier:@"BabyStateUpdate"];
+    } else if (self.state==BabyStateCrying && power<kPowerThreshold) {
+        self.state = BabyStateSilent;
+        [self.wormhole passMessageObject:@(self.state) identifier:@"BabyStateUpdate"];
+        NSLog(@"Baby stopped crying.");
     }
 }
 

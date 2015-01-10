@@ -66,6 +66,7 @@
 
 /* Begin PBXFileReference section */
 		7E2B64FF1A61969000E2E633 /* Baby.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Baby.mp4; sourceTree = "<group>"; };
+		7E2B65051A61CB1000E2E633 /* BabyState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyState.h; sourceTree = "<group>"; };
 		A9D2BDD01A615BE900E5E12C /* Babyface.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Babyface.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9D2BDD41A615BE900E5E12C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9D2BDD51A615BE900E5E12C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -165,6 +166,7 @@
 				A9D2BDE01A615BE900E5E12C /* Images.xcassets */,
 				A9D2BDE21A615BE900E5E12C /* LaunchScreen.xib */,
 				A9D2BDD31A615BE900E5E12C /* Supporting Files */,
+				7E2B65051A61CB1000E2E633 /* BabyState.h */,
 			);
 			path = Babyface;
 			sourceTree = "<group>";

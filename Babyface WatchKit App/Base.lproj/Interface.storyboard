@@ -8,12 +8,31 @@
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController">
+                <controller contentMode="scaleAspectFill" id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
-                        <imageView width="1" height="1" alignment="center" verticalAlignment="center" image="baby-placeholder" contentMode="scaleAspectFill" id="YQo-jC-914"/>
+                        <group width="1" height="1" alignment="left" backgroundImage="baby-placeholder" contentMode="scaleAspectFill" layout="vertical" id="rfW-fd-x3c">
+                            <items>
+                                <label width="1" alignment="left" text="BABY ALARM !" textAlignment="center" id="sDo-NU-9wj">
+                                    <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                </label>
+                                <group width="1" height="0.20000000000000001" heightAdjustment="10" alignment="left" verticalAlignment="bottom" spacing="3" id="0um-sW-3Gm">
+                                    <items>
+                                        <button width="0.50000000000000011" alignment="left" verticalAlignment="bottom" alpha="0.80000000000000016" title="✕ Hide" id="pub-Vq-35q">
+                                            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </button>
+                                        <button width="0.50000000000000011" alignment="right" verticalAlignment="bottom" alpha="0.79999999999999982" title="♫ Play" id="VqJ-ky-3MR">
+                                            <color key="backgroundColor" red="0.18550226827527971" green="0.77660205696202533" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </button>
+                                    </items>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="5"/>
+                                </group>
+                            </items>
+                        </group>
                     </items>
                     <connections>
-                        <outlet property="videoImage" destination="YQo-jC-914" id="jWd-Kp-VuA"/>
+                        <outlet property="alarmLabel" destination="sDo-NU-9wj" id="Fzm-ev-6vL"/>
+                        <outlet property="buttonGroup" destination="0um-sW-3Gm" id="bfl-ow-DM8"/>
+                        <outlet property="mainGroup" destination="rfW-fd-x3c" id="ZuE-kl-Hbp"/>
                     </connections>
                 </controller>
             </objects>

@@ -11,6 +11,8 @@
 
 @interface InterfaceController : WKInterfaceController
 
-@property (strong, nonatomic) IBOutlet WKInterfaceImage *videoImage;
+@property (weak, nonatomic) IBOutlet WKInterfaceGroup *mainGroup;
+@property (weak, nonatomic) IBOutlet WKInterfaceGroup *buttonGroup;
+@property (weak, nonatomic) IBOutlet WKInterfaceLabel *alarmLabel;
 
 @end

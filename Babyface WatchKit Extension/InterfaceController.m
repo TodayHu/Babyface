@@ -8,6 +8,7 @@
 
 #import "InterfaceController.h"
 #import "MMWormhole.h"
+#import "BabyState.h"
 
 @interface InterfaceController()
 @property (nonatomic, strong) MMWormhole *wormhole;
@@ -23,9 +24,18 @@
     
     [self.wormhole listenForMessageWithIdentifier:@"UpdateImage" listener:^(id messageObject) {
         UIImage *image = [UIImage imageWithData:messageObject];
-        [self.videoImage setHidden:NO];
-        [self.videoImage setImage:image];
+        [self.mainGroup setBackgroundImage:image];
     }];
+    
+    [self.wormhole listenForMessageWithIdentifier:@"BabyStateUpdate" listener:^(id messageObject) {
+        BabyState state = [messageObject unsignedIntegerValue];
+        BOOL hideDialog = (state==BabyStateSilent);
+        [self.buttonGroup setHidden:hideDialog];
+        [self.alarmLabel setHidden:hideDialog];
+    }];
+
+    [self.alarmLabel setHidden:YES];
+    [self.buttonGroup setHidden:YES];
 }
 
 - (void)willActivate {
