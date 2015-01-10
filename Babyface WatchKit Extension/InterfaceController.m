@@ -9,10 +9,8 @@
 #import "InterfaceController.h"
 #import "MMWormhole.h"
 
-@interface InterfaceController() {
-    MMWormhole *_wormhole;
-}
-
+@interface InterfaceController()
+@property (nonatomic, strong) MMWormhole *wormhole;
 @end
 
 
@@ -21,17 +19,13 @@
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
     
-    _wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.mocava.watchkit.babyface.sharedcontainer" optionalDirectory:nil];
+    self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.mocava.watchkit.babyface.sharedcontainer" optionalDirectory:nil];
     
-    [_wormhole listenForMessageWithIdentifier:@"UpdateImage" listener:^(id messageObject) {
+    [self.wormhole listenForMessageWithIdentifier:@"UpdateImage" listener:^(id messageObject) {
         UIImage *image = [UIImage imageWithData:messageObject];
-        [_videoImage setHidden:NO];
-        [_videoImage setImage:image];
+        [self.videoImage setHidden:NO];
+        [self.videoImage setImage:image];
     }];
-    
-    AVAu
-
-    // Configure interface objects here.
 }
 
 - (void)willActivate {

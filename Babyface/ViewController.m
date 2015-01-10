@@ -9,13 +9,13 @@
 #import <AVFoundation/AVFoundation.h>
 #import "ViewController.h"
 #import "MMWormhole.h"
+#import <MediaPlayer/MediaPlayer.h>
 
-@interface ViewController () {
-    MMWormhole *_wormhole;
-    AVAudioRecorder *_audioRecorder;
-    NSTimer *_timer;
-}
-
+@interface ViewController ()
+@property (nonatomic, strong) MMWormhole *wormhole;
+@property (nonatomic, strong) MPMoviePlayerController *moviePlayer;
+@property (nonatomic, strong) AVAudioRecorder *audioRecorder;
+@property (nonatomic, strong) NSTimer *timer;
 @end
 
 @implementation ViewController
@@ -23,21 +23,38 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.mocava.watchkit.babyface.sharedcontainer" optionalDirectory:nil];
-    
+    self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:kGroupIdentifier optionalDirectory:nil];
+
+    [self setupMoviePlayer];
+    [self setupBabyCryDetection];
+}
+
+- (void)setupMoviePlayer {
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Baby.mp4" withExtension:nil];
+    self.moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
+    [self.moviePlayer play];
+
+    [self.moviePlayer.view setFrame:self.view.bounds];
+    [self.moviePlayer.view setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
+    [self.moviePlayer setScalingMode:MPMovieScalingModeAspectFill];
+
+    [self.view addSubview:self.moviePlayer.view];
+}
+
+- (void)setupBabyCryDetection {
     NSURL *url = [NSURL fileURLWithPath:@"/dev/null"];
     NSDictionary *settings = [NSDictionary dictionaryWithObjectsAndKeys:
-                              [NSNumber numberWithFloat: 44100.0],                 AVSampleRateKey,
-                              [NSNumber numberWithInt: kAudioFormatAppleLossless], AVFormatIDKey,
-                              [NSNumber numberWithInt: 1],                         AVNumberOfChannelsKey,
-                              [NSNumber numberWithInt: AVAudioQualityMax],         AVEncoderAudioQualityKey,
-                              nil];
-    _audioRecorder = [[AVAudioRecorder alloc] initWithURL:url settings:settings error:nil];
-    _audioRecorder.meteringEnabled = YES;
-    [_audioRecorder prepareToRecord];
-    [_audioRecorder record];
-    _timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(listenToBaby) userInfo:nil repeats:YES];
-    [_timer fire];
+            [NSNumber numberWithFloat: 44100.0],                 AVSampleRateKey,
+            [NSNumber numberWithInt: kAudioFormatAppleLossless], AVFormatIDKey,
+            [NSNumber numberWithInt: 1],                         AVNumberOfChannelsKey,
+            [NSNumber numberWithInt: AVAudioQualityMax],         AVEncoderAudioQualityKey,
+                    nil];
+    self.audioRecorder = [[AVAudioRecorder alloc] initWithURL:url settings:settings error:nil];
+    self.audioRecorder.meteringEnabled = YES;
+    [self.audioRecorder prepareToRecord];
+    [self.audioRecorder record];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(listenToBaby) userInfo:nil repeats:YES];
+    [self.timer fire];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -46,15 +63,14 @@
     UIImage *image = [UIImage imageNamed:@"baby-red"];
     NSData *imageData = UIImagePNGRepresentation(image);
     
-    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [_wormhole passMessageObject:imageData identifier:@"UpdateImage"];
+        [self.wormhole passMessageObject:imageData identifier:@"UpdateImage"];
     });
 }
 
 - (void)listenToBaby {
-    [_audioRecorder updateMeters];
-    CGFloat power = [_audioRecorder averagePowerForChannel:0];
+    [self.audioRecorder updateMeters];
+    CGFloat power = [self.audioRecorder averagePowerForChannel:0];
     if (power>=-20.0) {
         NSLog(@"Baby is crying...");
     } else {

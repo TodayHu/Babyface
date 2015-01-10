@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "MMWormhole.h"
 
+static NSString *const kGroupIdentifier = @"group.com.mocava.watchkit.babyface.sharedcontainer";
+
 @interface ViewController : UIViewController
 
 @end
