@@ -8,9 +8,11 @@
 
 #import "ViewController.h"
 #import "MMWormhole.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface ViewController () {
     MMWormhole *_wormhole;
+    MPMoviePlayerController *_moviePlayer;
 }
 
 @end
@@ -21,6 +23,16 @@
     [super viewDidLoad];
     
     _wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.watchkit.babyface.sharedcontainer" optionalDirectory:nil];
+    
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Baby.mp4" withExtension:nil];
+    _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
+    [_moviePlayer play];
+    
+    [_moviePlayer.view setFrame:self.view.bounds];
+    [_moviePlayer.view setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
+    [_moviePlayer setScalingMode:MPMovieScalingModeAspectFill];
+
+    [self.view addSubview:_moviePlayer.view];
     
     
 }
