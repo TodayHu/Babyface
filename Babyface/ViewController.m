@@ -39,8 +39,21 @@
     [self.moviePlayer.view setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
     [self.moviePlayer setScalingMode:MPMovieScalingModeAspectFill];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(finishedPlayingMovie:)
+                                                 name:MPMoviePlayerPlaybackDidFinishNotification
+                                               object:self.moviePlayer];
+
     [self.view addSubview:self.moviePlayer.view];
-    self.movieTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateBabyImage) userInfo:nil repeats:YES];
+    self.movieTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateBabyImage) userInfo:nil repeats:YES];
+}
+
+- (void)finishedPlayingMovie:(NSNotification *)notification {
+    NSAssert([notification.object isEqual:self.moviePlayer], @"Movieplayer is not the one playing baby movie");
+    MPMovieFinishReason reason = [[notification.userInfo objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey] integerValue];
+    if (reason == MPMovieFinishReasonPlaybackEnded) {
+        [self.moviePlayer play];
+    }
 }
 
 - (void)setupBabyCryDetection {
