@@ -12,6 +12,8 @@
 #import "MMWormhole.h"
 #import "BabyState.h"
 
+static const CGFloat kMinDialogPresentationTime = 7.0;
+
 @interface ViewController ()
 @property (nonatomic, strong) MMWormhole *wormhole;
 @property (nonatomic, strong) MPMoviePlayerController *moviePlayer;
@@ -19,6 +21,7 @@
 @property (nonatomic, strong) NSTimer *audioTimer;
 @property(nonatomic, strong) NSTimer *movieTimer;
 @property (nonatomic, assign) BabyState state;
+@property (nonatomic, assign) BOOL canTransitionToSilence;
 @end
 
 @implementation ViewController
@@ -28,6 +31,7 @@
     
     self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:kGroupIdentifier optionalDirectory:nil];
     self.state = BabyStateSilent;
+    self.canTransitionToSilence = NO;
     
     [self setupMoviePlayer];
     [self setupBabyCryDetection];
@@ -88,8 +92,12 @@
     if (power>=kPowerThreshold && self.state==BabyStateSilent) {
         NSLog(@"Baby is crying...");
         self.state = BabyStateCrying;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kMinDialogPresentationTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.canTransitionToSilence = YES;
+        });
         [self.wormhole passMessageObject:@(self.state) identifier:@"BabyStateUpdate"];
-    } else if (self.state==BabyStateCrying && power<kPowerThreshold) {
+    } else if (self.state==BabyStateCrying && power<kPowerThreshold && self.canTransitionToSilence) {
+        self.canTransitionToSilence = NO;
         self.state = BabyStateSilent;
         [self.wormhole passMessageObject:@(self.state) identifier:@"BabyStateUpdate"];
         NSLog(@"Baby stopped crying.");
