@@ -11,6 +11,8 @@
 
 static NSString *const kGroupIdentifier = @"group.com.mocava.watchkit.babyface.sharedcontainer";
 
+static const double kPowerThreshold = -10.0;
+
 @interface ViewController : UIViewController
 
 @end

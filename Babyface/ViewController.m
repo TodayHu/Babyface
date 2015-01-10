@@ -71,7 +71,7 @@
 - (void)listenToBaby {
     [self.audioRecorder updateMeters];
     CGFloat power = [self.audioRecorder averagePowerForChannel:0];
-    if (power>=-20.0) {
+    if (power>=kPowerThreshold) {
         NSLog(@"Baby is crying...");
     } else {
         NSLog(@"Baby is fine.");
