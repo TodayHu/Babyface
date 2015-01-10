@@ -15,7 +15,8 @@
 @property (nonatomic, strong) MMWormhole *wormhole;
 @property (nonatomic, strong) MPMoviePlayerController *moviePlayer;
 @property (nonatomic, strong) AVAudioRecorder *audioRecorder;
-@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, strong) NSTimer *audioTimer;
+@property(nonatomic, strong) NSTimer *movieTimer;
 @end
 
 @implementation ViewController
@@ -37,8 +38,9 @@
     [self.moviePlayer.view setFrame:self.view.bounds];
     [self.moviePlayer.view setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
     [self.moviePlayer setScalingMode:MPMovieScalingModeAspectFill];
-
+    
     [self.view addSubview:self.moviePlayer.view];
+    self.movieTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateBabyImage) userInfo:nil repeats:YES];
 }
 
 - (void)setupBabyCryDetection {
@@ -53,19 +55,15 @@
     self.audioRecorder.meteringEnabled = YES;
     [self.audioRecorder prepareToRecord];
     [self.audioRecorder record];
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(listenToBaby) userInfo:nil repeats:YES];
-    [self.timer fire];
+    self.audioTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(listenToBaby) userInfo:nil repeats:YES];
+    [self.audioTimer fire];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-    UIImage *image = [UIImage imageNamed:@"baby-red"];
+- (void)updateBabyImage {
+    UIImage *image = [self.moviePlayer thumbnailImageAtTime:[self.moviePlayer currentPlaybackTime] timeOption:MPMovieTimeOptionNearestKeyFrame];
+    image = [self scaledImageFromImage:image size:CGSizeMake(390/10.0, 312/10.0)];
     NSData *imageData = UIImagePNGRepresentation(image);
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.wormhole passMessageObject:imageData identifier:@"UpdateImage"];
-    });
+    [self.wormhole passMessageObject:imageData identifier:@"UpdateImage"];
 }
 
 - (void)listenToBaby {
@@ -77,5 +75,17 @@
         NSLog(@"Baby is fine.");
     }
 }
+
+- (UIImage *)scaledImageFromImage:(UIImage *)image size:(CGSize)size {
+    //UIGraphicsBeginImageContext(newSize);
+    // In next line, pass 0.0 to use the current device's pixel scaling factor (and thus account for Retina resolution).
+    // Pass 1.0 to force exact pixel size.
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
 
 @end
