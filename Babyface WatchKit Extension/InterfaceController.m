@@ -38,6 +38,15 @@
     [self.buttonGroup setHidden:YES];
 }
 
+- (IBAction)hideButtonPressed {
+    [self.wormhole passMessageObject:nil identifier:@"HideButtonPressed"];
+    [self.buttonGroup setHidden:YES];
+    [self.alarmLabel setHidden:YES];
+}
+
+- (IBAction)playButtonPressed {
+}
+
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user
     [super willActivate];

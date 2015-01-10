@@ -22,16 +22,27 @@ static const CGFloat kMinDialogPresentationTime = 7.0;
 @property(nonatomic, strong) NSTimer *movieTimer;
 @property (nonatomic, assign) BabyState state;
 @property (nonatomic, assign) BOOL canTransitionToSilence;
+@property (nonatomic, assign) BOOL canTransitionToCrying;
+@property (nonatomic, strong) NSMutableArray *movingNoiseAverage;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.movingNoiseAverage = [NSMutableArray new];
     self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:kGroupIdentifier optionalDirectory:nil];
     self.state = BabyStateSilent;
     self.canTransitionToSilence = NO;
+    self.canTransitionToCrying = YES;
+    
+    [self.wormhole listenForMessageWithIdentifier:@"HideButtonPressed" listener:^(id messageObject) {
+        self.state = BabyStateSilent;
+        self.canTransitionToCrying = NO;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.canTransitionToCrying = YES;
+        });
+    }];
     
     [self setupMoviePlayer];
     [self setupBabyCryDetection];
@@ -89,14 +100,20 @@ static const CGFloat kMinDialogPresentationTime = 7.0;
 - (void)listenToBaby {
     [self.audioRecorder updateMeters];
     CGFloat power = [self.audioRecorder averagePowerForChannel:0];
-    if (power>=kPowerThreshold && self.state==BabyStateSilent) {
+    [self.movingNoiseAverage addObject:@(power)];
+    if (self.movingNoiseAverage.count>=50) {
+        [self.movingNoiseAverage removeObjectAtIndex:0];
+    }
+    CGFloat avgPower = [[self.movingNoiseAverage valueForKeyPath:@"@max.floatValue"] floatValue];
+    
+    if (avgPower>=kPowerThreshold && self.state==BabyStateSilent && self.canTransitionToCrying==YES) {
         NSLog(@"Baby is crying...");
         self.state = BabyStateCrying;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kMinDialogPresentationTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             self.canTransitionToSilence = YES;
         });
         [self.wormhole passMessageObject:@(self.state) identifier:@"BabyStateUpdate"];
-    } else if (self.state==BabyStateCrying && power<kPowerThreshold && self.canTransitionToSilence) {
+    } else if (self.state==BabyStateCrying && avgPower<kPowerThreshold && self.canTransitionToSilence) {
         self.canTransitionToSilence = NO;
         self.state = BabyStateSilent;
         [self.wormhole passMessageObject:@(self.state) identifier:@"BabyStateUpdate"];
