@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "MMWormhole.h"
 
-@interface ViewController ()
+@interface ViewController () {
+    MMWormhole *_wormhole;
+}
 
 @end
 
@@ -16,7 +19,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    _wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.watchkit.babyface.sharedcontainer" optionalDirectory:nil];
+    
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    UIImage *image = [UIImage imageNamed:@"baby-red"];
+    NSData *imageData = UIImagePNGRepresentation(image);
+    
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [_wormhole passMessageObject:imageData identifier:@"UpdateImage"];
+    });
+    
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -14,6 +14,15 @@
 		A9D2BDE11A615BE900E5E12C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9D2BDE01A615BE900E5E12C /* Images.xcassets */; };
 		A9D2BDE41A615BE900E5E12C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9D2BDE21A615BE900E5E12C /* LaunchScreen.xib */; };
 		A9D2BDF01A615BE900E5E12C /* BabyfaceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D2BDEF1A615BE900E5E12C /* BabyfaceTests.m */; };
+		A9D2BE041A615CB000E5E12C /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D2BE031A615CB000E5E12C /* InterfaceController.m */; };
+		A9D2BE071A615CB000E5E12C /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D2BE061A615CB000E5E12C /* NotificationController.m */; };
+		A9D2BE091A615CB000E5E12C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9D2BE081A615CB000E5E12C /* Images.xcassets */; };
+		A9D2BE0D1A615CB000E5E12C /* Babyface WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = A9D2BE0C1A615CB000E5E12C /* Babyface WatchKit App.app */; };
+		A9D2BE151A615CB000E5E12C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9D2BE131A615CB000E5E12C /* Interface.storyboard */; };
+		A9D2BE171A615CB000E5E12C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9D2BE161A615CB000E5E12C /* Images.xcassets */; };
+		A9D2BE1A1A615CB000E5E12C /* Babyface WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A9D2BDFD1A615CB000E5E12C /* Babyface WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A9D2BE271A61649200E5E12C /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D2BE261A61649200E5E12C /* MMWormhole.m */; };
+		A9D2BE281A61649200E5E12C /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D2BE261A61649200E5E12C /* MMWormhole.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,7 +33,35 @@
 			remoteGlobalIDString = A9D2BDCF1A615BE900E5E12C;
 			remoteInfo = Babyface;
 		};
+		A9D2BE0E1A615CB000E5E12C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9D2BDC81A615BE900E5E12C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9D2BE0B1A615CB000E5E12C;
+			remoteInfo = "Babyface WatchKit App";
+		};
+		A9D2BE181A615CB000E5E12C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9D2BDC81A615BE900E5E12C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9D2BDFC1A615CB000E5E12C;
+			remoteInfo = "Babyface WatchKit Extension";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A9D2BE211A615CB000E5E12C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A9D2BE1A1A615CB000E5E12C /* Babyface WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A9D2BDD01A615BE900E5E12C /* Babyface.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Babyface.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +77,22 @@
 		A9D2BDE91A615BE900E5E12C /* BabyfaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BabyfaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9D2BDEE1A615BE900E5E12C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9D2BDEF1A615BE900E5E12C /* BabyfaceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BabyfaceTests.m; sourceTree = "<group>"; };
+		A9D2BDFD1A615CB000E5E12C /* Babyface WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Babyface WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9D2BE001A615CB000E5E12C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9D2BE011A615CB000E5E12C /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		A9D2BE021A615CB000E5E12C /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
+		A9D2BE031A615CB000E5E12C /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
+		A9D2BE051A615CB000E5E12C /* NotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
+		A9D2BE061A615CB000E5E12C /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
+		A9D2BE081A615CB000E5E12C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A9D2BE0C1A615CB000E5E12C /* Babyface WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Babyface WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9D2BE121A615CB000E5E12C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9D2BE141A615CB000E5E12C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		A9D2BE161A615CB000E5E12C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A9D2BE221A6161AF00E5E12C /* Babyface.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Babyface.entitlements; sourceTree = "<group>"; };
+		A9D2BE231A61622400E5E12C /* Babyface WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Babyface WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		A9D2BE251A61649200E5E12C /* MMWormhole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWormhole.h; sourceTree = "<group>"; };
+		A9D2BE261A61649200E5E12C /* MMWormhole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWormhole.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +110,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A9D2BDFA1A615CB000E5E12C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -65,6 +125,9 @@
 			children = (
 				A9D2BDD21A615BE900E5E12C /* Babyface */,
 				A9D2BDEC1A615BE900E5E12C /* BabyfaceTests */,
+				A9D2BE291A61649E00E5E12C /* Vendor */,
+				A9D2BDFE1A615CB000E5E12C /* Babyface WatchKit Extension */,
+				A9D2BE101A615CB000E5E12C /* Babyface WatchKit App */,
 				A9D2BDD11A615BE900E5E12C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,6 +137,8 @@
 			children = (
 				A9D2BDD01A615BE900E5E12C /* Babyface.app */,
 				A9D2BDE91A615BE900E5E12C /* BabyfaceTests.xctest */,
+				A9D2BDFD1A615CB000E5E12C /* Babyface WatchKit Extension.appex */,
+				A9D2BE0C1A615CB000E5E12C /* Babyface WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,6 +146,7 @@
 		A9D2BDD21A615BE900E5E12C /* Babyface */ = {
 			isa = PBXGroup;
 			children = (
+				A9D2BE221A6161AF00E5E12C /* Babyface.entitlements */,
 				A9D2BDD71A615BE900E5E12C /* AppDelegate.h */,
 				A9D2BDD81A615BE900E5E12C /* AppDelegate.m */,
 				A9D2BDDA1A615BE900E5E12C /* ViewController.h */,
@@ -119,6 +185,65 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A9D2BDFE1A615CB000E5E12C /* Babyface WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A9D2BE231A61622400E5E12C /* Babyface WatchKit Extension.entitlements */,
+				A9D2BE021A615CB000E5E12C /* InterfaceController.h */,
+				A9D2BE031A615CB000E5E12C /* InterfaceController.m */,
+				A9D2BE051A615CB000E5E12C /* NotificationController.h */,
+				A9D2BE061A615CB000E5E12C /* NotificationController.m */,
+				A9D2BE081A615CB000E5E12C /* Images.xcassets */,
+				A9D2BDFF1A615CB000E5E12C /* Supporting Files */,
+			);
+			path = "Babyface WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		A9D2BDFF1A615CB000E5E12C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A9D2BE001A615CB000E5E12C /* Info.plist */,
+				A9D2BE011A615CB000E5E12C /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A9D2BE101A615CB000E5E12C /* Babyface WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				A9D2BE131A615CB000E5E12C /* Interface.storyboard */,
+				A9D2BE161A615CB000E5E12C /* Images.xcassets */,
+				A9D2BE111A615CB000E5E12C /* Supporting Files */,
+			);
+			path = "Babyface WatchKit App";
+			sourceTree = "<group>";
+		};
+		A9D2BE111A615CB000E5E12C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A9D2BE121A615CB000E5E12C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A9D2BE241A61649200E5E12C /* MMWormhole */ = {
+			isa = PBXGroup;
+			children = (
+				A9D2BE251A61649200E5E12C /* MMWormhole.h */,
+				A9D2BE261A61649200E5E12C /* MMWormhole.m */,
+			);
+			name = MMWormhole;
+			path = Vendor/MMWormhole;
+			sourceTree = SOURCE_ROOT;
+		};
+		A9D2BE291A61649E00E5E12C /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				A9D2BE241A61649200E5E12C /* MMWormhole */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,10 +254,12 @@
 				A9D2BDCC1A615BE900E5E12C /* Sources */,
 				A9D2BDCD1A615BE900E5E12C /* Frameworks */,
 				A9D2BDCE1A615BE900E5E12C /* Resources */,
+				A9D2BE211A615CB000E5E12C /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A9D2BE191A615CB000E5E12C /* PBXTargetDependency */,
 			);
 			name = Babyface;
 			productName = Babyface;
@@ -157,6 +284,39 @@
 			productReference = A9D2BDE91A615BE900E5E12C /* BabyfaceTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		A9D2BDFC1A615CB000E5E12C /* Babyface WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9D2BE1E1A615CB000E5E12C /* Build configuration list for PBXNativeTarget "Babyface WatchKit Extension" */;
+			buildPhases = (
+				A9D2BDF91A615CB000E5E12C /* Sources */,
+				A9D2BDFA1A615CB000E5E12C /* Frameworks */,
+				A9D2BDFB1A615CB000E5E12C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9D2BE0F1A615CB000E5E12C /* PBXTargetDependency */,
+			);
+			name = "Babyface WatchKit Extension";
+			productName = "Babyface WatchKit Extension";
+			productReference = A9D2BDFD1A615CB000E5E12C /* Babyface WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		A9D2BE0B1A615CB000E5E12C /* Babyface WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9D2BE1B1A615CB000E5E12C /* Build configuration list for PBXNativeTarget "Babyface WatchKit App" */;
+			buildPhases = (
+				A9D2BE0A1A615CB000E5E12C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Babyface WatchKit App";
+			productName = "Babyface WatchKit App";
+			productReference = A9D2BE0C1A615CB000E5E12C /* Babyface WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -168,10 +328,28 @@
 				TargetAttributes = {
 					A9D2BDCF1A615BE900E5E12C = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = QC2Y29KWS6;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					A9D2BDE81A615BE900E5E12C = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = A9D2BDCF1A615BE900E5E12C;
+					};
+					A9D2BDFC1A615CB000E5E12C = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = QC2Y29KWS6;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					A9D2BE0B1A615CB000E5E12C = {
+						CreatedOnToolsVersion = 6.2;
 					};
 				};
 			};
@@ -190,6 +368,8 @@
 			targets = (
 				A9D2BDCF1A615BE900E5E12C /* Babyface */,
 				A9D2BDE81A615BE900E5E12C /* BabyfaceTests */,
+				A9D2BDFC1A615CB000E5E12C /* Babyface WatchKit Extension */,
+				A9D2BE0B1A615CB000E5E12C /* Babyface WatchKit App */,
 			);
 		};
 /* End PBXProject section */
@@ -212,6 +392,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A9D2BDFB1A615CB000E5E12C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9D2BE091A615CB000E5E12C /* Images.xcassets in Resources */,
+				A9D2BE0D1A615CB000E5E12C /* Babyface WatchKit App.app in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9D2BE0A1A615CB000E5E12C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9D2BE151A615CB000E5E12C /* Interface.storyboard in Resources */,
+				A9D2BE171A615CB000E5E12C /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -221,6 +419,7 @@
 			files = (
 				A9D2BDDC1A615BE900E5E12C /* ViewController.m in Sources */,
 				A9D2BDD91A615BE900E5E12C /* AppDelegate.m in Sources */,
+				A9D2BE271A61649200E5E12C /* MMWormhole.m in Sources */,
 				A9D2BDD61A615BE900E5E12C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,6 +432,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A9D2BDF91A615CB000E5E12C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9D2BE071A615CB000E5E12C /* NotificationController.m in Sources */,
+				A9D2BE041A615CB000E5E12C /* InterfaceController.m in Sources */,
+				A9D2BE281A61649200E5E12C /* MMWormhole.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -240,6 +449,16 @@
 			isa = PBXTargetDependency;
 			target = A9D2BDCF1A615BE900E5E12C /* Babyface */;
 			targetProxy = A9D2BDEA1A615BE900E5E12C /* PBXContainerItemProxy */;
+		};
+		A9D2BE0F1A615CB000E5E12C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9D2BE0B1A615CB000E5E12C /* Babyface WatchKit App */;
+			targetProxy = A9D2BE0E1A615CB000E5E12C /* PBXContainerItemProxy */;
+		};
+		A9D2BE191A615CB000E5E12C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9D2BDFC1A615CB000E5E12C /* Babyface WatchKit Extension */;
+			targetProxy = A9D2BE181A615CB000E5E12C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -258,6 +477,14 @@
 				A9D2BDE31A615BE900E5E12C /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		A9D2BE131A615CB000E5E12C /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9D2BE141A615CB000E5E12C /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -280,7 +507,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Marco Klingmann (3574464Q3S)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -321,7 +548,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -343,9 +570,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Babyface/Babyface.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Babyface/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -353,9 +584,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Babyface/Babyface.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Babyface/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -393,6 +628,70 @@
 			};
 			name = Release;
 		};
+		A9D2BE1C1A615CB000E5E12C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = Babyface_WatchKit_Extension;
+				INFOPLIST_FILE = "Babyface WatchKit App/Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		A9D2BE1D1A615CB000E5E12C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				IBSC_MODULE = Babyface_WatchKit_Extension;
+				INFOPLIST_FILE = "Babyface WatchKit App/Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
+		A9D2BE1F1A615CB000E5E12C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Babyface WatchKit Extension/Babyface WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Babyface WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A9D2BE201A615CB000E5E12C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Babyface WatchKit Extension/Babyface WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Babyface WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -412,6 +711,7 @@
 				A9D2BDF51A615BE900E5E12C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A9D2BDF61A615BE900E5E12C /* Build configuration list for PBXNativeTarget "BabyfaceTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +720,25 @@
 				A9D2BDF81A615BE900E5E12C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9D2BE1B1A615CB000E5E12C /* Build configuration list for PBXNativeTarget "Babyface WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9D2BE1C1A615CB000E5E12C /* Debug */,
+				A9D2BE1D1A615CB000E5E12C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9D2BE1E1A615CB000E5E12C /* Build configuration list for PBXNativeTarget "Babyface WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9D2BE1F1A615CB000E5E12C /* Debug */,
+				A9D2BE201A615CB000E5E12C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

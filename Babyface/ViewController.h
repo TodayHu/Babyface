@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MMWormhole.h"
 
 @interface ViewController : UIViewController
-
 
 @end
 
