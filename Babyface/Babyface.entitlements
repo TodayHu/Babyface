@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.com.watchkit.babyface.sharedcontainer</string>
+		<string>group.com.mocava.watchkit.babyface.sharedcontainer</string>
 	</array>
 </dict>
 </plist>

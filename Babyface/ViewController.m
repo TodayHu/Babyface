@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.watchkit.babyface.sharedcontainer" optionalDirectory:nil];
+    _wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.mocava.watchkit.babyface.sharedcontainer" optionalDirectory:nil];
     
     
 }
@@ -29,6 +29,9 @@
     [super viewDidAppear:animated];
     
     UIImage *image = [UIImage imageNamed:@"baby-red"];
+    NSString *msg = [NSString stringWithFormat:@"Image is %@", image];
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Image" message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [av show];
     NSData *imageData = UIImagePNGRepresentation(image);
     
     

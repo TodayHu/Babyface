@@ -21,7 +21,7 @@
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
     
-    _wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.watchkit.babyface.sharedcontainer" optionalDirectory:nil];
+    _wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.mocava.watchkit.babyface.sharedcontainer" optionalDirectory:nil];
     
     [_wormhole listenForMessageWithIdentifier:@"UpdateImage" listener:^(id messageObject) {
         UIImage *image = [UIImage imageWithData:messageObject];
@@ -29,7 +29,7 @@
         [_videoImage setImage:image];
     }];
     
-    
+    AVAu
 
     // Configure interface objects here.
 }
