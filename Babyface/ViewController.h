@@ -8,12 +8,27 @@
 
 #import <UIKit/UIKit.h>
 #import "MMWormhole.h"
+#import <AVFoundation/AVFoundation.h>
+
+
 
 static NSString *const kGroupIdentifier = @"group.com.mocava.watchkit.babyface.sharedcontainer";
 
 static const double kPowerThreshold = -10.0;
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <AVAudioPlayerDelegate>  {
+    
+}
+
+- (IBAction)Sound;
+
+
+
+
+
+
+
+
 
 @end
 
