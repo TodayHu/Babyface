@@ -24,20 +24,13 @@ static const CGFloat kMinDialogPresentationTime = 7.0;
 @property (nonatomic, assign) BOOL canTransitionToSilence;
 @property (nonatomic, assign) BOOL canTransitionToCrying;
 @property (nonatomic, strong) NSMutableArray *movingNoiseAverage;
+@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 @end
 
-@implementation ViewController {
-    AVAudioPlayer* _audioPlayer;
-}
-
--(IBAction)sound {
-
-}
+@implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     NSLog(@"viewDidLoad");
-    
 
     self.movingNoiseAverage = [NSMutableArray new];
     self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:kGroupIdentifier optionalDirectory:nil];
@@ -55,7 +48,6 @@ static const CGFloat kMinDialogPresentationTime = 7.0;
     }];
     
     [self.wormhole listenForMessageWithIdentifier:@"PlayButtonPressed" listener:^(id messageObject) {
-        NSLog(@"playButtonMessage received");
         [self playSound];
     }];
     
@@ -150,8 +142,8 @@ static const CGFloat kMinDialogPresentationTime = 7.0;
 - (void) playSound{
     NSString *path = [[NSBundle mainBundle] pathForResource:@"lullaby" ofType:@"mp3"];
     NSError *error;
-    _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:&error];
-    [_audioPlayer play];
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:&error];
+    [self.audioPlayer play];
 }
 
 

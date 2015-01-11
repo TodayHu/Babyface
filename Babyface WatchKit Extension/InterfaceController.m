@@ -45,8 +45,6 @@
 }
 
 - (IBAction)playButtonPressed {
-    NSLog(@"playButtonPressed");
-    
     [self.wormhole passMessageObject:nil identifier:@"PlayButtonPressed"];
 }
 
