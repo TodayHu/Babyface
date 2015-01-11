@@ -30,8 +30,16 @@
     [self.wormhole listenForMessageWithIdentifier:@"BabyStateUpdate" listener:^(id messageObject) {
         BabyState state = [messageObject unsignedIntegerValue];
         BOOL hideDialog = (state==BabyStateSilent);
-        [self.buttonGroup setHidden:hideDialog];
         [self.alarmLabel setHidden:hideDialog];
+
+        if (!hideDialog) {
+            [self.buttonGroup stopAnimating];
+            [self.buttonGroup startAnimatingWithImagesInRange:NSMakeRange(0, 39) duration:0.5 repeatCount:1];
+            [self.buttonGroup setHidden:NO];
+        } else {
+            [self.buttonGroup stopAnimating];
+            [self.buttonGroup startAnimatingWithImagesInRange:NSMakeRange(39, 13) duration:0.5 repeatCount:1];
+        }
     }];
 
     [self.alarmLabel setHidden:YES];
@@ -40,12 +48,16 @@
 
 - (IBAction)hideButtonPressed {
     [self.wormhole passMessageObject:nil identifier:@"HideButtonPressed"];
-    [self.buttonGroup setHidden:YES];
+//    [self.buttonGroup setHidden:YES];
     [self.alarmLabel setHidden:YES];
+    [self.buttonGroup stopAnimating];
+    [self.buttonGroup startAnimatingWithImagesInRange:NSMakeRange(39, 13) duration:0.5 repeatCount:1];
 }
 
 - (IBAction)playButtonPressed {
     [self.wormhole passMessageObject:nil identifier:@"PlayButtonPressed"];
+    [self.buttonGroup stopAnimating];
+    [self.buttonGroup startAnimatingWithImagesInRange:NSMakeRange(52, 16) duration:0.5 repeatCount:1];
 }
 
 - (void)willActivate {

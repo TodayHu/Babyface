@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		7E2B65001A61969000E2E633 /* Baby.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7E2B64FF1A61969000E2E633 /* Baby.mp4 */; };
 		7E2D89F91A61DD470095BA02 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E2D89F81A61DD470095BA02 /* AVFoundation.framework */; };
-		7E2D89FD1A61F03F0095BA02 /* lullaby.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7E2D89FC1A61F03F0095BA02 /* lullaby.mp3 */; };
+		7EC119211A6260B100820347 /* lullaby.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7EC1191F1A6260B100820347 /* lullaby.mp3 */; };
+		7EC119221A6260B100820347 /* Mini Mini Kołysanki - W sukieneczkach z pajęczynki.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7EC119201A6260B100820347 /* Mini Mini Kołysanki - W sukieneczkach z pajęczynki.mp3 */; };
 		A9D2BDD61A615BE900E5E12C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D2BDD51A615BE900E5E12C /* main.m */; };
 		A9D2BDD91A615BE900E5E12C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D2BDD81A615BE900E5E12C /* AppDelegate.m */; };
 		A9D2BDDC1A615BE900E5E12C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D2BDDB1A615BE900E5E12C /* ViewController.m */; };
@@ -70,7 +71,8 @@
 		7E2B64FF1A61969000E2E633 /* Baby.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Baby.mp4; sourceTree = "<group>"; };
 		7E2B65051A61CB1000E2E633 /* BabyState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyState.h; sourceTree = "<group>"; };
 		7E2D89F81A61DD470095BA02 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		7E2D89FC1A61F03F0095BA02 /* lullaby.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = lullaby.mp3; path = Audio/lullaby.mp3; sourceTree = "<group>"; };
+		7EC1191F1A6260B100820347 /* lullaby.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lullaby.mp3; sourceTree = "<group>"; };
+		7EC119201A6260B100820347 /* Mini Mini Kołysanki - W sukieneczkach z pajęczynki.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mini Mini Kołysanki - W sukieneczkach z pajęczynki.mp3"; sourceTree = "<group>"; };
 		A9D2BDD01A615BE900E5E12C /* Babyface.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Babyface.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9D2BDD41A615BE900E5E12C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9D2BDD51A615BE900E5E12C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -136,6 +138,15 @@
 			path = Videos;
 			sourceTree = "<group>";
 		};
+		7EC1191E1A6260B100820347 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				7EC1191F1A6260B100820347 /* lullaby.mp3 */,
+				7EC119201A6260B100820347 /* Mini Mini Kołysanki - W sukieneczkach z pajęczynki.mp3 */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		A9D2BDC71A615BE900E5E12C = {
 			isa = PBXGroup;
 			children = (
@@ -171,7 +182,6 @@
 				A9D2BDDD1A615BE900E5E12C /* Main.storyboard */,
 				A9D2BDE01A615BE900E5E12C /* Images.xcassets */,
 				A9D2BDE21A615BE900E5E12C /* LaunchScreen.xib */,
-				7E2D89FC1A61F03F0095BA02 /* lullaby.mp3 */,
 				A9D2BDD31A615BE900E5E12C /* Supporting Files */,
 				7E2B65051A61CB1000E2E633 /* BabyState.h */,
 			);
@@ -181,6 +191,7 @@
 		A9D2BDD31A615BE900E5E12C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7EC1191E1A6260B100820347 /* Audio */,
 				7E2B64FE1A61969000E2E633 /* Videos */,
 				A9D2BDD41A615BE900E5E12C /* Info.plist */,
 				A9D2BDD51A615BE900E5E12C /* main.m */,
@@ -401,9 +412,10 @@
 			files = (
 				A9D2BDDF1A615BE900E5E12C /* Main.storyboard in Resources */,
 				7E2B65001A61969000E2E633 /* Baby.mp4 in Resources */,
+				7EC119221A6260B100820347 /* Mini Mini Kołysanki - W sukieneczkach z pajęczynki.mp3 in Resources */,
+				7EC119211A6260B100820347 /* lullaby.mp3 in Resources */,
 				A9D2BDE41A615BE900E5E12C /* LaunchScreen.xib in Resources */,
 				A9D2BDE11A615BE900E5E12C /* Images.xcassets in Resources */,
-				7E2D89FD1A61F03F0095BA02 /* lullaby.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
