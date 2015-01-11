@@ -48,7 +48,6 @@
 
 - (IBAction)hideButtonPressed {
     [self.wormhole passMessageObject:nil identifier:@"HideButtonPressed"];
-//    [self.buttonGroup setHidden:YES];
     [self.alarmLabel setHidden:YES];
     [self.buttonGroup stopAnimating];
     [self.buttonGroup startAnimatingWithImagesInRange:NSMakeRange(39, 13) duration:0.5 repeatCount:1];

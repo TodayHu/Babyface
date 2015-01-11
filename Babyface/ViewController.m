@@ -39,7 +39,6 @@ static const CGFloat kMinDialogPresentationTime = 7.0;
     self.canTransitionToCrying = YES;
     
     [self.wormhole listenForMessageWithIdentifier:@"HideButtonPressed" listener:^(id messageObject) {
-        NSLog(@"HideButtonPressed received");
         self.state = BabyStateSilent;
         self.canTransitionToCrying = NO;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -49,6 +48,11 @@ static const CGFloat kMinDialogPresentationTime = 7.0;
     
     [self.wormhole listenForMessageWithIdentifier:@"PlayButtonPressed" listener:^(id messageObject) {
         [self playSound];
+        self.state = BabyStateSilent;
+        self.canTransitionToCrying = NO;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(55.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.canTransitionToCrying = YES;
+        });
     }];
     
     [self setupMoviePlayer];
@@ -114,7 +118,6 @@ static const CGFloat kMinDialogPresentationTime = 7.0;
     CGFloat avgPower = [[self.movingNoiseAverage valueForKeyPath:@"@max.floatValue"] floatValue];
     
     if (avgPower>=kPowerThreshold && self.state==BabyStateSilent && self.canTransitionToCrying==YES) {
-        NSLog(@"Baby is crying...");
         self.state = BabyStateCrying;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kMinDialogPresentationTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             self.canTransitionToSilence = YES;
@@ -124,7 +127,6 @@ static const CGFloat kMinDialogPresentationTime = 7.0;
         self.canTransitionToSilence = NO;
         self.state = BabyStateSilent;
         [self.wormhole passMessageObject:@(self.state) identifier:@"BabyStateUpdate"];
-        NSLog(@"Baby stopped crying.");
     }
 }
 
