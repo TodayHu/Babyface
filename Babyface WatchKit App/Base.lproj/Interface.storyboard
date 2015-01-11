@@ -37,8 +37,18 @@
                     </items>
                     <menu key="menu" id="fL5-xu-59T">
                         <items>
-                            <menuItem title="Play sound" icon="play" id="Jpr-Ur-PqS"/>
-                            <menuItem title="Save photo" icon="share" id="dMl-jg-Tuq"/>
+                            <menuItem title="Play sound" icon="play" id="Jpr-Ur-PqS">
+                                <connections>
+                                    <action selector="playSoundItemPressed" destination="AgC-eL-Hgc" id="U0V-OX-zeM"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Save photo" icon="share" id="dMl-jg-Tuq">
+                                <connections>
+                                    <action selector="savePhotoItemPressed" destination="AgC-eL-Hgc" id="rEi-3o-6sK"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Call wife" icon="shuffle" id="u45-ME-xnY"/>
+                            <menuItem title="$ Earplugs" icon="mute" id="tPm-2W-f93"/>
                         </items>
                     </menu>
                     <connections>

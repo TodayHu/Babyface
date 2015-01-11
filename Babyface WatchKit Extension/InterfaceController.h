@@ -14,5 +14,7 @@
 @property (weak, nonatomic) IBOutlet WKInterfaceGroup *mainGroup;
 @property (weak, nonatomic) IBOutlet WKInterfaceGroup *buttonGroup;
 @property (weak, nonatomic) IBOutlet WKInterfaceLabel *alarmLabel;
+- (IBAction)playSoundItemPressed;
+- (IBAction)savePhotoItemPressed;
 
 @end

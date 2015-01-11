@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Marco Klingmann. All rights reserved.
 //
 
+#import <Photos/Photos.h>
 #import "AppDelegate.h"
 
 
@@ -17,8 +18,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+        if (status!=PHAuthorizationStatusAuthorized) {
+            NSLog(@"Can't get image authorization");
+        }
+    }];
     
     return YES;
 }

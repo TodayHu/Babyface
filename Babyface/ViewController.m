@@ -8,6 +8,7 @@
 
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import <Photos/Photos.h>
 #import "ViewController.h"
 #import "MMWormhole.h"
 #import "BabyState.h"
@@ -25,6 +26,7 @@ static const CGFloat kMinDialogPresentationTime = 7.0;
 @property (nonatomic, assign) BOOL canTransitionToCrying;
 @property (nonatomic, strong) NSMutableArray *movingNoiseAverage;
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;
+@property (nonatomic, assign) BOOL shouldSaveNextPhoto;
 @end
 
 @implementation ViewController
@@ -33,6 +35,8 @@ static const CGFloat kMinDialogPresentationTime = 7.0;
     [super viewDidLoad];
 
     self.movingNoiseAverage = [NSMutableArray new];
+    self.shouldSaveNextPhoto = NO;
+    
     self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:kGroupIdentifier optionalDirectory:nil];
     self.state = BabyStateSilent;
     self.canTransitionToSilence = NO;
@@ -55,6 +59,9 @@ static const CGFloat kMinDialogPresentationTime = 7.0;
         });
     }];
     
+    [self.wormhole listenForMessageWithIdentifier:@"SavePhotoItemPressed" listener:^(id messageObject) {
+        self.shouldSaveNextPhoto = YES;
+    }];
     [self setupMoviePlayer];
     [self setupBabyCryDetection];
 }
@@ -103,6 +110,12 @@ static const CGFloat kMinDialogPresentationTime = 7.0;
 
 - (void)updateBabyImage {
     UIImage *image = [self.moviePlayer thumbnailImageAtTime:[self.moviePlayer currentPlaybackTime] timeOption:MPMovieTimeOptionNearestKeyFrame];
+    if (self.shouldSaveNextPhoto) {
+        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+            [PHAssetChangeRequest creationRequestForAssetFromImage:image];
+        } completionHandler:nil];
+        self.shouldSaveNextPhoto = NO;
+    }
     image = [self scaledImageFromImage:image size:CGSizeMake(390/10.0, 312/10.0)];
     NSData *imageData = UIImagePNGRepresentation(image);
     [self.wormhole passMessageObject:imageData identifier:@"UpdateImage"];
@@ -141,7 +154,10 @@ static const CGFloat kMinDialogPresentationTime = 7.0;
     return newImage;
 }
 
-- (void) playSound{
+- (void) playSound {
+    if (self.audioPlayer.playing) {
+        [self.audioPlayer stop];
+    }
     NSString *path = [[NSBundle mainBundle] pathForResource:@"lullaby" ofType:@"mp3"];
     NSError *error;
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:&error];

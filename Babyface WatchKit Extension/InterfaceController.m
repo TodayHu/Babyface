@@ -73,6 +73,14 @@
     
 }
 
+- (IBAction)playSoundItemPressed {
+    [self.wormhole passMessageObject:nil identifier:@"PlayButtonPressed"];
+}
+
+- (IBAction)savePhotoItemPressed {
+    [self.wormhole passMessageObject:nil identifier:@"SavePhotoItemPressed"];
+}
+
 @end
 
 
