@@ -20,15 +20,5 @@ static const double kPowerThreshold = -10.0;
     
 }
 
-- (IBAction)Sound;
-
-
-
-
-
-
-
-
-
 @end
 

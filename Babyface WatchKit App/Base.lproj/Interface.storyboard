@@ -10,7 +10,7 @@
             <objects>
                 <controller contentMode="scaleAspectFill" id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
-                        <group width="1" height="1" alignment="left" backgroundImage="baby-placeholder" contentMode="scaleAspectFill" layout="vertical" id="rfW-fd-x3c">
+                        <group width="1" height="1" alignment="left" backgroundImage="baby-placeholder" contentMode="scaleAspectFit" layout="vertical" id="rfW-fd-x3c">
                             <items>
                                 <label width="1" alignment="left" text="BABY ALARM !" textAlignment="center" id="sDo-NU-9wj">
                                     <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
