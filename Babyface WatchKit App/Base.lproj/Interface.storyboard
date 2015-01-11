@@ -10,10 +10,10 @@
             <objects>
                 <controller contentMode="scaleAspectFill" id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
-                        <group width="1" height="1" alignment="left" backgroundImage="baby-placeholder" contentMode="scaleAspectFit" layout="vertical" id="rfW-fd-x3c">
+                        <group width="1" height="1" alignment="left" backgroundImage="baby-placeholder" contentMode="scaleAspectFill" layout="vertical" id="rfW-fd-x3c">
                             <items>
-                                <label width="1" alignment="left" text="BABY ALARM !" textAlignment="center" id="sDo-NU-9wj">
-                                    <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                <label width="1" height="27" alignment="center" text="Baby Awake" textAlignment="center" id="sDo-NU-9wj">
+                                    <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
                                 </label>
                                 <group width="1" height="80" heightAdjustment="10" alignment="left" verticalAlignment="bottom" alpha="0.84999999999999987" backgroundImage="button_animation-" contentMode="bottom" initiallyAnimated="NO" spacing="3" id="0um-sW-3Gm">
                                     <items>
@@ -35,6 +35,12 @@
                             </items>
                         </group>
                     </items>
+                    <menu key="menu" id="fL5-xu-59T">
+                        <items>
+                            <menuItem title="Play sound" icon="play" id="Jpr-Ur-PqS"/>
+                            <menuItem title="Save photo" icon="share" id="dMl-jg-Tuq"/>
+                        </items>
+                    </menu>
                     <connections>
                         <outlet property="alarmLabel" destination="sDo-NU-9wj" id="Fzm-ev-6vL"/>
                         <outlet property="buttonGroup" destination="0um-sW-3Gm" id="bfl-ow-DM8"/>
