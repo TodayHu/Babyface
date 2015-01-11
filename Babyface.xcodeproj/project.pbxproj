@@ -11,6 +11,7 @@
 		7E2D89F91A61DD470095BA02 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E2D89F81A61DD470095BA02 /* AVFoundation.framework */; };
 		7EC119211A6260B100820347 /* lullaby.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7EC1191F1A6260B100820347 /* lullaby.mp3 */; };
 		7EC119221A6260B100820347 /* Mini Mini Kołysanki - W sukieneczkach z pajęczynki.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7EC119201A6260B100820347 /* Mini Mini Kołysanki - W sukieneczkach z pajęczynki.mp3 */; };
+		7EC119AB1A6280EF00820347 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9D2BE161A615CB000E5E12C /* Images.xcassets */; };
 		A9D2BDD61A615BE900E5E12C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D2BDD51A615BE900E5E12C /* main.m */; };
 		A9D2BDD91A615BE900E5E12C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D2BDD81A615BE900E5E12C /* AppDelegate.m */; };
 		A9D2BDDC1A615BE900E5E12C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D2BDDB1A615BE900E5E12C /* ViewController.m */; };
@@ -412,6 +413,7 @@
 			files = (
 				A9D2BDDF1A615BE900E5E12C /* Main.storyboard in Resources */,
 				7E2B65001A61969000E2E633 /* Baby.mp4 in Resources */,
+				7EC119AB1A6280EF00820347 /* Images.xcassets in Resources */,
 				7EC119221A6260B100820347 /* Mini Mini Kołysanki - W sukieneczkach z pajęczynki.mp3 in Resources */,
 				7EC119211A6260B100820347 /* lullaby.mp3 in Resources */,
 				A9D2BDE41A615BE900E5E12C /* LaunchScreen.xib in Resources */,
